@@ -8,6 +8,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     TextView tv_whetherResult;
     ImageView imageView;
     ListView listview;
+    String golbalAddress;
 
     double weidu;
     double jingdu;
@@ -106,6 +108,11 @@ public class MainActivity extends AppCompatActivity {
 
                         List<Address> addressList = geocoder.getFromLocation(weidu, jingdu, 1);
                         tv_location_result.setText("您所在的位置是:\n" + addressList.get(0).getAddressLine(1) + addressList.get(0).getFeatureName());
+                        golbalAddress =  addressList.get(0).getAddressLine(1).substring(1,3);
+
+                        System.out.println("golbalAddress"+golbalAddress);
+
+
 
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -136,7 +143,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void getWhether(View v) {
         Map<String, String> querys = new HashMap<String, String>();
-        String request_url = "http://api.map.baidu.com/telematics/v3/weather?location=" + "北京" + "&output=json&ak=GuZriL3rkm1MUnyTyfsNGvTC";
+
+        if(golbalAddress == null){
+            golbalAddress = "北京";
+        }
+
+        String request_url = "http://api.map.baidu.com/telematics/v3/weather?location="+golbalAddress+"&output=json&ak=GuZriL3rkm1MUnyTyfsNGvTC";
+        System.out.println("request_url"+request_url);
         JsonRequest jsonRequest = new JsonObjectRequest(
                 Request.Method.POST,
                 request_url,
