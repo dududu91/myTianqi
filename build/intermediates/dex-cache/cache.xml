@@ -43,7 +43,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="667c29979ec7ddf9abdcd7becb95a3dd18f49120">
+        sha1="135419bc46ee867d5580a8e9c06ad7c185fb55ba">
         <dex dex="/Users/HJ/myTianqi/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_da98880affadb037c806bf30b7eeaf25eb62ca00/classes.dex" />
     </item>
     <item
@@ -70,7 +70,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="d14a7066e5c575917afc893f0a747d4d2f3aee0b">
+        sha1="725459b05b05aba3dd73577f2ff24632851e0680">
         <dex dex="/Users/HJ/myTianqi/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_72c3bbfdbeb0a0def4a1ee29164aeeb24edfc6c4/classes.dex" />
     </item>
 

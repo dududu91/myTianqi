@@ -170,10 +170,7 @@ public class MainActivity extends AppCompatActivity {
 
                             System.out.println("------index-------" + index_ojbect.get("index"));
                             System.out.println("------weather_data-------" + index_ojbect.get("weather_data"));
-
-
                             JSONArray array = index_ojbect.getJSONArray("weather_data");
-
                             ArrayList today_weather_list = new ArrayList<>();
                             JSONObject object = (JSONObject) array.get(0);
 
@@ -184,7 +181,6 @@ public class MainActivity extends AppCompatActivity {
                             today_weather_list.add(object.get("wind"));
                             today_weather_list.add(object.get("temperature"));
 
-
                             ArrayList<JSONObject> totalDataList = new ArrayList<>();
                             for (int i = 0; i < array.length(); i++) {
                                 totalDataList.add((JSONObject) array.get(i));
@@ -194,23 +190,16 @@ public class MainActivity extends AppCompatActivity {
                                 System.out.println("all data:" + totalDataList.get(j));
 
                             }
-
-
                             myAdapter adapter = new myAdapter(getApplicationContext(), totalDataList);
                             listview.setAdapter(adapter);
-
-
                             String city = results.substring(17, 19);
                             tv_whetherResult.setText(city + " PM2.5: " + pm25 + "\n" + today_weather_list.get(0) + today_weather_list.get(3) +
                                     today_weather_list.get(4) + today_weather_list.get(5)
                             );
 
                             System.out.println("today_weather_list.get(1)" + today_weather_list.get(1));
-
-
                             String picUrl = today_weather_list.get(1).toString();
                             getWeatherPic(picUrl);
-
 
                         } catch (JSONException e) {
                             e.printStackTrace();
